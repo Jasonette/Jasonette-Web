@@ -1,0 +1,103 @@
+<html>
+<script src="https://www.celljs.org/cell.js"></script>
+<script src="https://rawgit.com/SelectTransform/st.js/develop/st.js"></script>
+<link href="../../dist/jason.css" rel="stylesheet">
+<script src="../../dist/jason.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.css">
+
+<link href="./style.css" rel="stylesheet">
+<script>
+
+/*******************************************************
+
+  # Getting started
+
+  1. Install http-server to run the app locally https://github.com/indexzero/http-server
+  2. From the root folder, run "http-server". It will show you the root path (http://127.0.0.1:8080 probably)
+  3. Open the browser and enter the url to this path : http://127.0.0.1:8080/demo/multiple
+  4. You can play around with it by adding your own JASON url to the "apps" object, and it will turn into a column that renders a JASON view 
+
+  # How it works
+
+  This Example demonstrates how easy it is to plug
+  Jasonette-Web component into anywhere.
+
+  Jasonette-Web is powered by cell.js (https://www.celljs.org),
+  which makes it effortless to plug into any website without
+  any build tools or convoluted setup. It's just plain
+  "script src". 
+
+  # Important part
+
+  The main part where the actual transformation happens
+  is the line that says:
+
+  return Jason({id: key, class: "col"})
+
+  The "Jason" function is the main API. In this case
+  you pass it an optional object which overrides the
+  default options for rendering the main Jason view.
+
+  This code will result in a Jason component with an
+  id of key and class of "col".
+
+  See documentation for more details
+
+*******************************************************/
+
+var apps = {
+  "app1": "https://jasonbase.com/things/2wZm",
+  "app2": "https://raw.githubusercontent.com/Jasonette/Instagram-UI-example/master/home.json",
+  "app3": "https://raw.githubusercontent.com/Jasonette/Twitter-UI-example/master/home.json",
+  "app4": "https://jasonbase.com/things/oXLK"
+}
+App = {
+  $cell: true,
+  class: "container-fluid",
+  $components: [{
+    class: "row",
+    $init: function() {
+      var self = this;
+      Object.keys(apps).forEach(function(key) {
+        fetch(apps[key]).then(function(res) {
+          return res.json()
+        }).then(function(res) {
+          self.querySelector("#" + key)._update(res);
+        })
+      })
+      dragula([this], {
+        direction: "horizontal"
+      })
+      /*
+      dragula(this.$components, {
+        isContainer: function (el) {
+          return false; // only elements in drake.containers will be taken into account
+        },
+        moves: function (el, source, handle, sibling) {
+          return true; // elements are always draggable by default
+        },
+        accepts: function (el, target, source, sibling) {
+          return true; // elements can be dropped in any of the `containers` by default
+        },
+        invalid: function (el, handle) {
+          return false; // don't prevent any drags from initiating by default
+        },
+        direction: 'vertical',             // Y axis is considered when determining where an element would be dropped
+        copy: false,                       // elements are moved by default, not copied
+        copySortSource: false,             // elements in copy-source containers can be reordered
+        revertOnSpill: false,              // spilling will put the element back where it was dragged from, if this is true
+        removeOnSpill: false,              // spilling will `.remove` the element, if this is true
+        mirrorContainer: document.body,    // set the element that gets mirror elements appended
+        ignoreInputTextSelection: true     // allows users to select input text, see details below
+      });
+      */
+    },
+    $components: Object.keys(apps).map(function(key) {
+      return Jason({id: key, class: "col"})
+    })
+  }]
+}
+</script>
+</html>

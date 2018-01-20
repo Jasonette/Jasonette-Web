@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+a.link {
+  font-size: 12px !important;
+  display: block;
+  color: rgba(0,0,0,0.8);
+  word-wrap: break-word;
+  padding: 10px;
+}
+#sidebar {
+  padding: 20px;
+}

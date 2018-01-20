@@ -1,0 +1,35 @@
+<html>
+<script src="https://www.celljs.org/cell.js"></script>
+<script src="https://rawgit.com/SelectTransform/st.js/develop/st.js"></script>
+<link href="../../dist/jason.css" rel="stylesheet">
+<script src="../../dist/jason.js"></script>
+<script>
+var app = Jason({
+  $cell: true,
+  style: {
+    width: "400px",
+    margin: "0 auto"
+  }
+}, {
+  "$jason": {
+    "head": {
+      "title": "Basic"
+    },
+    "body": {
+      "header": {
+        "title": "Basic Example"
+      },
+      "sections": [{
+        "items": [{
+          "type": "label",
+          "style": {
+            "padding": "10"
+          },
+          "text": "Item 1"
+        }]
+      }]
+    }
+  }
+})
+</script>
+</html>

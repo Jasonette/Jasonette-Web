@@ -1,0 +1,31 @@
+<html>
+<script src="https://www.celljs.org/cell.js"></script>
+<script src="https://rawgit.com/SelectTransform/st.js/develop/st.js"></script>
+<link href="../../dist/jason.css" rel="stylesheet">
+<script src="../../dist/jason.js"></script>
+<link href="./custom.css" rel="stylesheet">
+<script>
+
+/*********************************
+
+  # Getting started
+
+  1. Install http-server to run the app locally https://github.com/indexzero/http-server
+  2. From the root folder, run "http-server". It will show you the root path (http://127.0.0.1:8080 probably)
+  3. Open the browser and enter the url to this path, followed by a hash value of the JSON URL you want to load. (For example: http://localhost:8080/demo/simple#https://jasonbase.com/things/E1bD)
+
+*********************************/
+
+var App = Jason({$cell: true, id: "jason"});
+if (window.location.hash) {
+  var url = window.location.hash.substring(1);
+  fetch(url)
+  .then(function(res) {
+    return res.json()
+  })
+  .then(function(res) {
+    document.querySelector("#jason")._update(res)
+  })
+}
+</script>
+</html>

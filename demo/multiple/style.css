@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  height: 100%;
+}
+#jason {
+  margin: 0 auto;
+  width: 400px;
+}
+.container {
+  height: 100%;
+}
+.row {
+  height: 100%;
+}
+.col {
+  cursor: move !important;
+  height: 100%;
+  padding: 0;
+  overflow: auto;
+}

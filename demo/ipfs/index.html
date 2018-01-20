@@ -1,0 +1,114 @@
+<html>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.css" rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/theme/railscasts.css' rel='stylesheet'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+<script src='https://tojson.co/node_modules/jsonlint/lib/jsonlint.js'></script>
+<script src='https://tojson.co/node_modules/codemirror/addon/lint/lint.js'></script>
+<script src='https://tojson.co/node_modules/codemirror/addon/lint/javascript-lint.js'></script>
+<script src='https://tojson.co/node_modules/codemirror/addon/lint/json-lint.js'></script>
+<script src='https://tojson.co/node_modules/codemirror/addon/edit/closebrackets.js'></script>
+<script src='https://tojson.co/node_modules/codemirror/addon/edit/matchbrackets.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/javascript/javascript.js"></script>
+<script src="https://www.celljs.org/cell.js"></script>
+<script src="https://rawgit.com/SelectTransform/st.js/develop/st.js"></script>
+<link href="../../dist/jason.css" rel="stylesheet">
+<script src="./editor.js"></script>
+<script src="../../dist/jason.js"></script>
+<link href="./custom.css" rel="stylesheet">
+<script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
+<script>
+
+
+/*******************************************************
+
+  # Getting started
+
+  1. Install http-server to run the app locally https://github.com/indexzero/http-server
+  2. From the root folder, run "http-server". It will show you the root path (http://127.0.0.1:8080 probably)
+  3. Open the browser and enter the url to this path : http://127.0.0.1:8080/demo/ipfs
+
+  # How it works
+
+  There are three columns
+
+  - Column 1: Sidebar to display all the snapshots of the JSON you save to IPFS
+  - Column 2: JASON editor
+  - Column 3: JASON View
+
+  When you start typing into the editor, you will see that the column 3 changes in realtime to reflect the markup.
+
+  When you're ready to save a snapshot, press the "save" button on the sidebar and it will store to IPFS.
+
+*******************************************************/
+
+
+
+var App = Jason({id: 'jason', $cell: true, class: "col-3"});
+var Editor = cm({
+  class: "col-7",
+  _update: function(v) {
+    document.querySelector("#jason")._update(JSON.parse(v))
+  }
+})
+var Sidebar = {
+  $cell: true,
+  id: "sidebar",
+  _node: null,
+  $init: function() {
+    this._node = new Ipfs({ repo: 'ipfs-' + Math.random() })
+    this._node.once('ready', () => {
+      console.log('Online status: ', this._node.isOnline() ? 'online' : 'offline')
+    })
+  },
+  _items: [],
+  _add: function(hash) {
+    this._items.push(hash);
+  },
+  $update: function() {
+    this.querySelector(".items")._update(this._items);
+  },
+  $components: [{
+    $type: "button",
+    class: "btn btn-primary",
+    $text: "Save",
+    onclick: function(e) {
+      var code = document.querySelector("#editor")._value;
+      console.log("code = ", code);
+      var buffer = new this._node.types.Buffer(code);
+      var self = this;
+      this._node.files.add(buffer, (err, filesAdded) => {
+        if (err) {
+          return console.error('Error - ipfs files add', err, res)
+        }
+        filesAdded.forEach((file) => {
+          console.log('successfully stored', file.hash)
+          self._add(file.hash);
+        })
+      })
+    }
+  }, {
+    class: "items",
+    _tpl: function(item) {
+      return {
+        $type: "a",
+        href: "http://ipfs.io/ipfs/" + item,
+        target: "_blank",
+        $text: "IPFS link: " + item,
+        class: "link"
+      }
+    },
+    _update: function(items) {
+      this.$components = items.map(this._tpl)
+    }
+  }]
+}
+</script>
+<div class='container-fluid'>
+<div class='row'>
+<div id='sidebar' class='col-2'></div>
+<textarea id='editor' class='col-7'></textarea>
+<div id='jason' class='col-3'></div>
+</div>
+</div>
+</html>
