@@ -1,4 +1,16 @@
 <html>
+<!-- Dependencies -->
+<script src="https://www.celljs.org/cell.js"></script>
+<script src="https://selecttransform.github.io/st.js/st.js"></script>
+
+<!-- Jasonette-Web -->
+<link href="../../dist/jason.css" rel="stylesheet">
+<script src="../../dist/jason.js"></script>
+
+<!-- App specific -->
+<script src="./editor.js"></script>
+<link href="./custom.css" rel="stylesheet">
+<script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.css" rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/theme/railscasts.css' rel='stylesheet'>
@@ -10,16 +22,8 @@
 <script src='https://tojson.co/node_modules/codemirror/addon/edit/closebrackets.js'></script>
 <script src='https://tojson.co/node_modules/codemirror/addon/edit/matchbrackets.js'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/javascript/javascript.js"></script>
-<script src="https://www.celljs.org/cell.js"></script>
-<script src="https://rawgit.com/SelectTransform/st.js/develop/st.js"></script>
-<link href="../../dist/jason.css" rel="stylesheet">
-<script src="./editor.js"></script>
-<script src="../../dist/jason.js"></script>
-<link href="./custom.css" rel="stylesheet">
-<script src="https://unpkg.com/ipfs/dist/index.min.js"></script>
+
 <script>
-
-
 /*******************************************************
 
   # Getting started
@@ -41,8 +45,6 @@
   When you're ready to save a snapshot, press the "save" button on the sidebar and it will store to IPFS.
 
 *******************************************************/
-
-
 
 var App = Jason({id: 'jason', $cell: true, class: "col-3"});
 var Editor = cm({

@@ -1,6 +1,6 @@
 # Jasonette-Web
 
-Jasonette-Web is an implementation of the [JASON](https://docs.jasonette.com/) protocol whose aim is to unbundle applications from devices by expressing everything in JSON, which then can be stored anywhere, transformed with any language, and transmitted anywhere, using any transport protocol.
+Jasonette-Web is an implementation of [JASON](https://docs.jasonette.com/) protocol, whose aim is to unbundle applications from devices by expressing everything in JSON, which then can be stored anywhere, transformed with any language, and transmitted anywhere, using any transport protocol.
 
 ![img](img/editor.gif)
 
@@ -10,6 +10,23 @@ You can learn more about the iOS and Android versions at:
 
 - Jasonette-iOS: [https://github.com/Jasonette/Jasonette-iOS](https://github.com/Jasonette/Jasonette-iOS)
 - Jasonette-Android: [https://github.com/Jasonette/Jasonette-Android](https://github.com/Jasonette/Jasonette-Android)
+
+# Demo
+
+Just to demonstrate what's possible, here are some demos you can try right now:
+
+- Very basic usage
+  - Demo: [https://jasonette.github.io/Jasonette-Web/demo/basic/](https://jasonette.github.io/Jasonette-Web/demo/basic/)
+  - Source: [demo/basic](demo/basic)
+- Opening a Jason app via url fragment
+  - Demo: [https://jasonette.github.io/Jasonette-Web/demo/simple/#https://jasonbase.com/things/E1bD](https://jasonette.github.io/Jasonette-Web/demo/simple/#https://jasonbase.com/things/E1bD)
+  - Source: [demo/simple](demo/simple)
+- Realtime Jasonette Editor
+  - Demo: [https://jasonette.github.io/Jasonette-Web/demo/ipfs/](https://jasonette.github.io/Jasonette-Web/demo/ipfs/)
+  - Source: [demo/ipfs](demo/ipfs)
+- Multiple draggable components
+  - Demo: [https://jasonette.github.io/Jasonette-Web/demo/multiple/](https://jasonette.github.io/Jasonette-Web/demo/multiple/)
+  - Source: [demo/multiple](demo/multiple)
 
 # Features
 
@@ -36,7 +53,7 @@ It doesn't yet implement the "Controller" part, which means it doesn't yet imple
 
 ```
 <script src="https://www.celljs.org/cell.js"></script>
-<script src="https://rawgit.com/SelectTransform/st.js/develop/st.js"></script>
+<script src="https://selecttransform.github.io/st.js/st.js"></script>
 <script src="https://jasonette.github.io/Jasonette-Web/dist/jason.js"></script>
 <link href="https://jasonette.github.io/Jasonette-Web/dist/jason.css" rel="stylesheet">
 ```
