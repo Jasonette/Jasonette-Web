@@ -16,18 +16,32 @@ var Jason = function(options, jason) {
       // Style
       var b = this._body;
       if (b.background) {
-        if (/http/.test(b.background)) {
-          this.style.backgroundImage = "url(" + b.background + ")";
-          this.style.backgroundSize = "cover";
+        if (typeof b.background === 'string') {
+          if (/http/.test(b.background)) {
+            this.style.backgroundImage = "url(" + b.background + ")";
+            this.style.backgroundSize = "cover";
+          } else {
+            this.style.backgroundColor = b.background;
+          }
         } else {
-          this.style.backgroundColor = b.background;
+          // advanced background
+          if (b.background.type === 'html') {
+            this.querySelector(".webcontainer")._update(b.background);
+          }
         }
       } else if (b.style && b.style.background) {
-        if (/http/.test(b.style.background)) {
-          this.style.backgroundImage = "url(" + b.style.background + ")";
-          this.style.backgroundSize = "cover";
+        if (typeof b.style.background === 'string') {
+          if (/http/.test(b.style.background)) {
+            this.style.backgroundImage = "url(" + b.style.background + ")";
+            this.style.backgroundSize = "cover";
+          } else {
+            this.style.backgroundColor = b.style.background;
+          }
         } else {
-          this.style.backgroundColor = b.style.background;
+          // advanced type (object type)
+          if (b.style.background.type === 'html') {
+            this.querySelector(".webcontainer")._update(b.style.background);
+          }
         }
       }
       if (this._styles) {
@@ -62,11 +76,9 @@ var Jason = function(options, jason) {
         } else {
           self.classList.add("hidden");
         }
-        console.log("Head = ", head);
         if (head) {
           if (head.templates && head.templates.body && head.data) {
             var parsed = ST.transform(head.templates.body, head.data); 
-            console.log("Parsed = ", head);
             if (parsed) {
               self.classList.remove("hidden");
               self._draw(parsed);
@@ -89,7 +101,8 @@ var Jason = function(options, jason) {
       Header,
       Sections,
       Layers,
-      Footer
+      Footer,
+      WebContainer
     ]
   }
   if (options) {

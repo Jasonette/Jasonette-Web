@@ -1,8 +1,9 @@
 var Layers = {
   _items: [],
-  class: "layers",
+  class: "layers hidden",
   _update: function(body) {
     if (body.layers) {
+      this.classList.remove("hidden");
       this._items = body.layers;
     }
   },
