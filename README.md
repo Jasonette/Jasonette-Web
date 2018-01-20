@@ -1,6 +1,6 @@
 # Jasonette-Web
 
-Jasonette-Web is an implementation of the [JASON](https://docs.jasonette.com/) protocol whose aim is to unbundle applications from devices by expressing everything in JSON, which then can be stored anywhere, transformed with any language, and transmitted anywhere, using any transport protocol.
+Jasonette-Web is an implementation of [JASON](https://docs.jasonette.com/) protocol, whose aim is to unbundle applications from devices by expressing everything in JSON, which then can be stored anywhere, transformed with any language, and transmitted anywhere, using any transport protocol.
 
 ![img](img/editor.gif)
 
