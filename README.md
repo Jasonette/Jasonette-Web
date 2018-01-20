@@ -2,9 +2,11 @@
 
 Jasonette-Web is an implementation of the [JASON](https://docs.jasonette.com/) protocol whose aim is to unbundle applications from devices by expressing everything in JSON, which then can be stored anywhere, transformed with any language, and transmitted anywhere, using any transport protocol.
 
+![img](img/editor.gif)
+
 You can build native iOS and Android apps using the JASON markup, and Jasonette-Web aims to replicate that experience on the web.
 
-You can find out more about the iOS and Android versions at:
+You can learn more about the iOS and Android versions at:
 
 - Jasonette-iOS: [https://github.com/Jasonette/Jasonette-iOS](https://github.com/Jasonette/Jasonette-iOS)
 - Jasonette-Android: [https://github.com/Jasonette/Jasonette-Android](https://github.com/Jasonette/Jasonette-Android)
@@ -13,7 +15,7 @@ You can find out more about the iOS and Android versions at:
 
 JASON has a lot of things going on, and we can't support everything from the beginning.
 
-## What it supports
+## What Jasonette-Web supports
 
 In terms of MVC (Model View Controller paradigm), the first version of Jasonette-Web implements MV (Model and View). This means it includes:
 
@@ -21,7 +23,7 @@ In terms of MVC (Model View Controller paradigm), the first version of Jasonette
 2. Dynamic rendering of inline data (under `$jason.head.data`) using templates (under `$jason.head.templates`)
 3. Mixins
 
-## What it doesn't support (yet)
+## What Jasonette-Web doesn't support (yet)
 
 It doesn't yet implement the "Controller" part, which means it doesn't yet implement:
 
@@ -84,7 +86,7 @@ You can create a Jason View using the following method:
 
 ## 1. Basic
 
-See it in action at [demo/basic](demo/basic)
+See it in action at [demo/basic](https://jasonette.github.io/Jasonette-Web/demo/basic/)
 
 ```
 var app = Jason({
@@ -151,9 +153,13 @@ Even without actions you can do a lot of things.
 
 ## 1. Editor
 
-You can use this as a realtime Jasonette editor. See demos for example
+You can use this as a realtime Jasonette editor.
 
 ![img](img/editor.gif)
+
+Try the demo at [demo/ipfs](https://jasonette.github.io/Jasonette-Web/demo/ipfs/)
+
+---
 
 ## 2. Plugin
 
@@ -161,9 +167,13 @@ Jasonette-Web is built on top of [cell.js](https://www.celljs.org), which lets y
 
 Therefore the Jasonette-Web component is instantly pluggable into any environment with ZERO hassle (No build steps. Literally just need to include 1 JS and 1 CSS file)
 
-Here's an example where a single page has 4 Jason components. Since each component is completely containerized thanks to cell.js, you can even drag and drop them anywhere simply using a drag and drop API. (Check out the demo at [demo/multiple](demo/multiple)
+Here's an example where a single page has 4 Jason components. Since each component is completely containerized thanks to cell.js, you can even drag and drop them anywhere simply using a drag and drop API.
+
+Try the demo at [demo/multiple](https://jasonette.github.io/Jasonette-Web/demo/multiple/)
 
 ![img](img/multiple.gif)
+
+---
 
 ## 3. Mixins
 
@@ -195,6 +205,7 @@ The mixins feature is very powerful because you can load remote JSON in realtime
 }
 ```
 
+
 The mixin will automatically fetch the remote JSON url and it will be immediately accessible under the variable `remote_items` throughout the template parsing process.
 
 To learn more about mixins, see: 
@@ -202,6 +213,10 @@ To learn more about mixins, see:
 - Documentation: [http://docs.jasonette.com/mixin/](http://docs.jasonette.com/mixin/)
 - Remote Mixins Tutorial: [http://blog.jasonette.com/2017/02/27/mixins/](http://blog.jasonette.com/2017/02/27/mixins/)
 - Self Mixins Tutorial: [http://blog.jasonette.com/2017/03/02/self-mixin/](http://blog.jasonette.com/2017/03/02/self-mixin/)
+
+---
+
+<br>
 
 # Contribution
 
