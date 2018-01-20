@@ -1,8 +1,9 @@
 var Sections = {
-  class: "sections",
+  class: "sections hidden",
   _update: function(body) {
     var input = body.sections;
     if (input && input.length > 0) {
+      this.classList.remove("hidden");
       this.$components = input.map(function(section) {
         var output = {};
 

@@ -1,0 +1,62 @@
+<html>
+<script src="https://www.celljs.org/cell.js"></script>
+<script src="https://selecttransform.github.io/st.js/st.js"></script>
+<link href="../../dist/jason.css" rel="stylesheet">
+<script src="../../dist/jason.js"></script>
+<style>
+body {
+  margin: 0;
+}
+</style>
+<script>
+var app = Jason({
+  $cell: true,
+  style: {
+    width: "400px",
+    margin: "0 auto"
+  }
+}, {
+  "$jason": {
+    "head": {
+      "title": "Basic"
+    },
+    "body": {
+      "header": {
+        "title": "Web Container Example",
+        "style": {
+          "background": "#3a3a3a",
+          "color": "#ffffff",
+          "padding": "10"
+        }
+      },
+      "footer": {
+        "tabs": {
+          "style": {
+            "background": "#ffffff"
+          },
+          "items": [
+            {
+              "image": "https://png.icons8.com/ios/100/000000/anonymous-mask.png",
+              "text": "Top Secret"
+            },
+            {
+              "image": "https://s3-us-west-2.amazonaws.com/fm.ethan.jason/info%402x.png",
+              "text": "Info",
+              "badge": "2"
+            },
+            {
+              "image": "https://s3-us-west-2.amazonaws.com/fm.ethan.jason/apps%402x.png",
+              "text": "Collection"
+            }
+          ]
+        }
+      },
+      "background": {
+        "type": "html",
+        "url": "http://docs.jasonette.com/"
+      }
+    }
+  }
+})
+</script>
+</html>
