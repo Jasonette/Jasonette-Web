@@ -36,7 +36,7 @@ It doesn't yet implement the "Controller" part, which means it doesn't yet imple
 
 ```
 <script src="https://www.celljs.org/cell.js"></script>
-<script src="https://rawgit.com/SelectTransform/st.js/develop/st.js"></script>
+<script src="https://selecttransform.github.io/st.js/st.js"></script>
 <script src="https://jasonette.github.io/Jasonette-Web/dist/jason.js"></script>
 <link href="https://jasonette.github.io/Jasonette-Web/dist/jason.css" rel="stylesheet">
 ```
