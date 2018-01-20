@@ -11,6 +11,23 @@ You can learn more about the iOS and Android versions at:
 - Jasonette-iOS: [https://github.com/Jasonette/Jasonette-iOS](https://github.com/Jasonette/Jasonette-iOS)
 - Jasonette-Android: [https://github.com/Jasonette/Jasonette-Android](https://github.com/Jasonette/Jasonette-Android)
 
+# Demo
+
+Just to demonstrate what's possible, here are some demos you can try right now:
+
+- Very basic usage
+  - Demo: [https://jasonette.github.io/Jasonette-Web/demo/basic/](https://jasonette.github.io/Jasonette-Web/demo/basic/)
+  - Source: [demo/basic](demo/basic)
+- Opening a Jason app via url fragment
+  - Demo: [https://jasonette.github.io/Jasonette-Web/demo/simple/#https://jasonbase.com/things/E1bD](https://jasonette.github.io/Jasonette-Web/demo/simple/#https://jasonbase.com/things/E1bD)
+  - Source: [demo/simple](demo/simple)
+- Realtime Jasonette Editor
+  - Demo: [https://jasonette.github.io/Jasonette-Web/demo/ipfs/](https://jasonette.github.io/Jasonette-Web/demo/ipfs/)
+  - Source: [demo/ipfs](demo/ipfs)
+- Multiple draggable components
+  - Demo: [https://jasonette.github.io/Jasonette-Web/demo/multiple/](https://jasonette.github.io/Jasonette-Web/demo/multiple/)
+  - Source: [demo/multiple](demo/multiple)
+
 # Features
 
 JASON has a lot of things going on, and we can't support everything from the beginning.
