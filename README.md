@@ -52,7 +52,7 @@ It doesn't yet implement the "Controller" part, which means it doesn't yet imple
 - Core: `jason.js` and `jason.css`
 
 ```
-<script src="https://www.celljs.org/cell.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cell/1.2.0/cell.min.js"></script>
 <script src="https://selecttransform.github.io/st.js/st.js"></script>
 <script src="https://jasonette.github.io/Jasonette-Web/dist/jason.js"></script>
 <link href="https://jasonette.github.io/Jasonette-Web/dist/jason.css" rel="stylesheet">
@@ -222,10 +222,9 @@ The mixins feature is very powerful because you can load remote JSON in realtime
 }
 ```
 
-
 The mixin will automatically fetch the remote JSON url and it will be immediately accessible under the variable `remote_items` throughout the template parsing process.
 
-To learn more about mixins, see: 
+To learn more about mixins, see:
 
 - Documentation: [http://docs.jasonette.com/mixin/](http://docs.jasonette.com/mixin/)
 - Remote Mixins Tutorial: [http://blog.jasonette.com/2017/02/27/mixins/](http://blog.jasonette.com/2017/02/27/mixins/)
@@ -256,7 +255,7 @@ Jasonette-Web is built on top of two main libraries:
 
 #### Cell.js
 
-To understand how the code works, you first need to understand how [cell.js](https://www.celljs.org) works. 
+To understand how the code works, you first need to understand how [cell.js](https://www.celljs.org) works.
 
 But don't worry, cell.js is a framework built to be intentionally simple and there are only 3 rules to remember, so it should take about 5 to 10 minutes to get started.
 

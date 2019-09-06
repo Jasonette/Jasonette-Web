@@ -1,54 +1,62 @@
 <html>
-<script src="https://www.celljs.org/cell.js"></script>
-<script src="https://selecttransform.github.io/st.js/st.js"></script>
-<link href="../../dist/jason.css" rel="stylesheet">
-<script src="../../dist/jason.js"></script>
-<style>
-body {
-  margin: 0;
-}
-</style>
-<script>
-var app = Jason({
-  $cell: true,
-  style: {
-    width: "400px",
-    margin: "0 auto"
-  }
-}, {
-  "$jason": {
-    "head": {
-      "title": "Basic"
-    },
-    "body": {
-      "header": {
-        "title": "Basic Example",
-        "style": {
-          "background": "#3a3a3a",
-          "color": "#ffffff",
-          "padding": "10"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cell/1.2.0/cell.min.js"></script>
+  <script src="https://selecttransform.github.io/st.js/st.js"></script>
+  <link href="../../dist/jason.css" rel="stylesheet" />
+  <script src="../../dist/jason.js"></script>
+  <style>
+    body {
+      margin: 0;
+    }
+  </style>
+  <script>
+    var app = Jason(
+      {
+        $cell: true,
+        style: {
+          width: '400px',
+          margin: '0 auto'
         }
       },
-      "background": "#2a2a2a",
-      "sections": [{
-        "items": [{
-          "type": "label",
-          "style": {
-            "color": "#ffffff",
-            "padding": "10"
+      {
+        $jason: {
+          head: {
+            title: 'Basic'
           },
-          "text": "Item 1"
-        }, {
-          "type": "label",
-          "style": {
-            "color": "#ffffff",
-            "padding": "10"
-          },
-          "text": "Item 2"
-        }]
-      }]
-    }
-  }
-})
-</script>
+          body: {
+            header: {
+              title: 'Basic Example',
+              style: {
+                background: '#3a3a3a',
+                color: '#ffffff',
+                padding: '10'
+              }
+            },
+            background: '#2a2a2a',
+            sections: [
+              {
+                items: [
+                  {
+                    type: 'label',
+                    style: {
+                      color: '#ffffff',
+                      padding: '10'
+                    },
+                    text: 'Item 1'
+                  },
+                  {
+                    type: 'label',
+                    style: {
+                      color: '#ffffff',
+                      padding: '10'
+                    },
+                    text: 'Item 2'
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    );
+  </script>
 </html>
